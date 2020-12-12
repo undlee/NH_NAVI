@@ -8,24 +8,25 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SplashActivity extends AppCompatActivity {
+    private final int SPLASH_DISPLAY_TIME = 3000;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        Handler handelr = new Handler();
-        handelr.postDelayed(new Runnable() {
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
-                finish();
+                startActivity(new Intent(getApplication(), MainActivity.class));
+                SplashActivity.this.finish();
             }
-        }, 3000);
+        }, SPLASH_DISPLAY_TIME);
     }
-    protected void onPause() {
-        super.onPause();
-        finish();
+
+    @Override
+    public void onBackPressed() {
+
     }
 }
