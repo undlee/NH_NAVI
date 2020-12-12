@@ -83,7 +83,7 @@
 
         <TextView
             android:id="@+id/account_number1"
-            android:layout_width="140dp"
+            android:layout_width="150dp"
             android:layout_height="20dp"
             android:layout_marginLeft="60dp"
             android:layout_marginTop="50dp"
@@ -93,7 +93,7 @@
 
         <TextView
             android:id="@+id/account_amount1"
-            android:layout_width="150dp"
+            android:layout_width="160dp"
             android:layout_height="40dp"
             android:layout_marginLeft="60dp"
             android:layout_marginTop="90dp"

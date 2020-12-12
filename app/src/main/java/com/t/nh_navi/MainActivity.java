@@ -38,6 +38,10 @@ public class MainActivity extends AppCompatActivity {
 //        title.bringToFront();
         try {
             NhApi();
+            title.setText(AccountName + "님의 통장");
+            account_number1.setText(Acno.substring(0, 3) + "-" + Acno.substring(3, 7) + "-" + Acno.substring(7, 11) + "-" + Acno.substring(11, 13));
+            account_amount1.setText(String.format("%,d", Integer.parseInt(Balance)) + "원");
+            user_name2.setText(AccountName);
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -48,10 +52,7 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        title.setText(AccountName + "님의 통장");
-        account_number1.setText(Acno.substring(0, 3) + "-" + Acno.substring(3, 7) + "-" + Acno.substring(7, 11) + "-" + Acno.substring(11, 13));
-        account_amount1.setText(String.format("%,d", Balance) + "원");
-        user_name2.setText(AccountName);
+
 
 
     }
