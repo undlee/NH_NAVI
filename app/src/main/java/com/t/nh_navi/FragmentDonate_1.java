@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.io.IOException;
@@ -86,7 +87,12 @@ public class FragmentDonate_1 extends Fragment {
         //Excel
         list_excel = (ListView) viewGroup.findViewById(R.id.listview1);
         arrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1);
-
+        Button recommend = (Button)viewGroup.findViewById(R.id.btn_recommend);
+        recommend.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+            }
+        });
 
 //        Log.d("result", String.valueOf(resultArray));
 //        //정렬
