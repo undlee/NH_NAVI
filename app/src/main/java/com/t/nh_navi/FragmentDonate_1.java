@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.io.IOException;
@@ -41,6 +42,7 @@ public class FragmentDonate_1 extends Fragment {
     ListView list_excel;
     ArrayAdapter<String> arrayAdapter;
     String[] instituteName;
+    Button btn_recommend;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -85,9 +87,17 @@ public class FragmentDonate_1 extends Fragment {
         viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_donate_1, container, false);
         //Excel
         list_excel = (ListView) viewGroup.findViewById(R.id.listview1);
+        btn_recommend = (Button) viewGroup.findViewById(R.id.btn_recommend);
         arrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1);
 
-
+        btn_recommend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Fragment 연결
+                Fragment fragment = new FragmentDonate_2(); // Fragment 생성 B
+                getFragmentManager().beginTransaction().replace(R.id.main_layout, fragment).commitAllowingStateLoss();
+            }
+        });
 //        Log.d("result", String.valueOf(resultArray));
 //        //정렬
 //        Collections.sort(resultArray);
@@ -95,8 +105,9 @@ public class FragmentDonate_1 extends Fragment {
 //
 //        Log.d("result", String.valueOf(resultArray.size()));
 
+
         //버튼 클릭시 - 다른 액티비티에도 적용
-        instituteName = new String[]{"아동", "한부모", "노인", "유기견", "자연재해", "장애인"};
+        instituteName = new String[]{"아동", "장애인", "자연재해", "한부모", "노인", "유기견"};
 //        for(int i = 0; i<instituteName.length; i++){
 //            Log.d("insti"+ i, instituteName[i]);
 //        }
@@ -118,22 +129,25 @@ public class FragmentDonate_1 extends Fragment {
         Workbook workbook = null;
         Sheet sheet = null;
         ArrayList resultArray = new ArrayList();
-        String[] arr_selectInstitute = null;
+        String[] arr_selectInstitute = new String[6];
         try {
             InputStream inputStream = getActivity().getResources().getAssets().open("한국사회복지협의회_사회복지자원봉사 관리센터 정보_20200701.xls");
             workbook = Workbook.getWorkbook(inputStream);
             sheet = workbook.getSheet(0); //0번째 시트
             int rowCount = sheet.getRows();
+//            Log.d("log", instituteName[1]);
             //pref 받아옴
             SharedPreferences sharedPreferences= getActivity().getSharedPreferences("test", MODE_PRIVATE);    // test 이름의 기본모드 설정
-            String st_selectInstitute = sharedPreferences.getString("selectInstitute", null);
 
-            //문자열 배열로 바꾸기
+            String st_selectInstitute = sharedPreferences.getString("selectInstitute", null);
+//            Log.d("arr", st_selectInstitute);
+
+//            //문자열 배열로 바꾸기
             if(st_selectInstitute!=null){
                 arr_selectInstitute = st_selectInstitute.replaceAll("\\[|\\]", "").split(",");
-                for(int i=0; i<arr_selectInstitute.length; i++){
-                    Log.d("arr", arr_selectInstitute[i]);
-                }
+//                for(int i=0; i<arr_selectInstitute.length; i++){
+                    Log.d("arr", Arrays.toString(arr_selectInstitute));
+//                }
             }
 
             for (int i = 1; i < rowCount; i++) {
@@ -149,14 +163,13 @@ public class FragmentDonate_1 extends Fragment {
                 //1열
                 //한부모 - 한부모 들어감
                 //자연재해, 유기견 데이터 없음
-//                if()
-//                resultArray.add(row[1].getContents());
-//                arrayAdapter.add(row[1].getContents());
                 if (st_selectInstitute!=null) {
-                    for(int j=0; j<st_selectInstitute.length(); j++){
+                    for(int j=0; j<arr_selectInstitute.length; j++){
                         if(arr_selectInstitute[j].equals("1")){
+                            Log.d("length", instituteName[j]);
                             if (row[1].getContents().contains(instituteName[j]) | row[2].getContents().contains(instituteName[j])) {
                                 resultArray.add(row[1].getContents());
+//                                Log.d("resultArray", String.valueOf(resultArray.size()));
                                 arrayAdapter.add(row[1].getContents());
                             }
                         }
@@ -165,7 +178,6 @@ public class FragmentDonate_1 extends Fragment {
                 else {
                     resultArray.add(row[1].getContents());
                     arrayAdapter.add(row[1].getContents());
-
                 }
             }
 

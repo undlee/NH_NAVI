@@ -33,22 +33,22 @@ import static android.content.Context.MODE_PRIVATE;
 // * create an instance of this fragment.
 // */
 public class FragmentHome extends Fragment {
-        //NH API
-        String day, time, Iscd, FintechApsno, Istuno, AccessToken, Rgno, BrdtBrno, Bncd, Acno;
-        //원하는 값
-        String FinAcno, AccountName, Balance, Drawing;
-
-        int DonationAmount = 1000;
-
-        private ScrollView mScrollView;
-        ViewGroup viewGroup;
-        String donateResult;
-
+    //NH API
+    String day, time, Iscd, FintechApsno, Istuno, AccessToken, Rgno, BrdtBrno, Bncd, Acno;
+    //원하는 값
+    String FinAcno, AccountName, Balance, Drawing;
+    ViewGroup viewGroup;
+    String  donateResult;
+    SharedPreferences.Editor editor;
+    TextView donate_result;
+    private ScrollView mScrollView;
+    private SharedPreferences sharedPreferences;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -59,9 +59,19 @@ public class FragmentHome extends Fragment {
         TextView account_number1 = (TextView) viewGroup.findViewById(R.id.account_number1);
         TextView account_amount1 = (TextView) viewGroup.findViewById(R.id.account_amount1);
         TextView user_name2 = (TextView) viewGroup.findViewById(R.id.user_name2);
-        TextView donate_result= (TextView)viewGroup.findViewById(R.id.donate_result);
+        donate_result = (TextView) viewGroup.findViewById(R.id.donate_result);
+        sharedPreferences = getActivity().getSharedPreferences("test", MODE_PRIVATE);    // test 이름의 기본모드 설정
+        editor = sharedPreferences.edit(); //sharedPreferences를 제어할 editor를 선언
+        load();
 
-        donateResult = donate_result.getText().toString();
+//        preference manager 초기화
+        editor.clear();
+        editor.commit();
+
+        if(donateResult!=null){
+//            Log.d("int", donateResult);
+            donate_result.setText(String.format("%,d", Integer.parseInt(donateResult)) + "원");
+        }
 
         try {
             NhApi();
@@ -81,57 +91,60 @@ public class FragmentHome extends Fragment {
 
         return viewGroup;
     }
-        @Override
-        public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-            super.onViewCreated(view, savedInstanceState);
-        }
 
-        private void NhApi() throws InterruptedException, ExecutionException, JSONException, IOException {
-            Date date = new Date();
-            SimpleDateFormat ymdFormat = new SimpleDateFormat("yyyyMMdd");
-            SimpleDateFormat hmsFormat = new SimpleDateFormat("HHmmss");
-            day = ymdFormat.format(date);
-            time = hmsFormat.format(date);
-            Iscd = "000540";
-            FintechApsno = "001";
-            Istuno = "0000100001" + (int) (Math.random() * 1000000000);
-            AccessToken = "9c772be64bd6bf8aef012e491fff94551607be583336bcd48e5339e65f30905d";
-            Rgno = "20201206000000650";
-            BrdtBrno = "19501201";
-            Bncd = "011";
-            Acno = "3020000002247";
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+    }
 
-            //핀어카운트 넘버
-            FinAcno = new CheckOpenFinAccountDirect(day, time, Iscd, FintechApsno, Istuno + 0, AccessToken, Rgno, BrdtBrno).getFinAcno();
-//            new PreferenceManager(this).put("finAcno", FinAcno);
-            SharedPreferences sharedPreferences= getActivity().getSharedPreferences("test", MODE_PRIVATE);    // test 이름의 기본모드 설정
-            SharedPreferences.Editor editor= sharedPreferences.edit(); //sharedPreferences를 제어할 editor를 선언
-            //donateResult
-            //day, time, Iscd, FintechApsno, Istuno, AccessToken, FinAcno
-//            editor.putString("donateResult",donateResult); // key,value 형식으로 저장
-            editor.putString("day",day); // key,value 형식으로 저장
-            editor.putString("time",time); // key,value 형식으로 저장
-            editor.putString("Iscd",Iscd); // key,value 형식으로 저장
-            editor.putString("FintechApsno",FintechApsno); // key,value 형식으로 저장
-            editor.putString("Istuno",Istuno); // key,value 형식으로 저장
-            editor.putString("AccessToken",AccessToken); // key,value 형식으로 저장
-            editor.putString("finAcno",FinAcno); // key,value 형식으로 저장
-            editor.commit();    //최종 커밋. 커밋을 해야 저장이 된다.
-            //pref 받아오기
+    // 기존 값이 있는지
+    private void load() {
+        // SharedPreferences 객체.get타입( 저장된 이름, 기본값 )
+        // 저장된 이름이 존재하지 않을 시 기본값
+        donateResult = sharedPreferences.getString("donateResult", "124140");
+    }
+
+    private void NhApi() throws InterruptedException, ExecutionException, JSONException, IOException {
+        Date date = new Date();
+        SimpleDateFormat ymdFormat = new SimpleDateFormat("yyyyMMdd");
+        SimpleDateFormat hmsFormat = new SimpleDateFormat("HHmmss");
+        day = ymdFormat.format(date);
+        time = hmsFormat.format(date);
+        Iscd = "000540";
+        FintechApsno = "001";
+        Istuno = "0000100001" + (int) (Math.random() * 1000000000);
+        AccessToken = "9c772be64bd6bf8aef012e491fff94551607be583336bcd48e5339e65f30905d";
+        Rgno = "20201206000000650";
+        BrdtBrno = "19501201";
+        Bncd = "011";
+        Acno = "3020000002247";
+
+        //핀어카운트 넘버
+        FinAcno = new CheckOpenFinAccountDirect(day, time, Iscd, FintechApsno, Istuno + 0, AccessToken, Rgno, BrdtBrno).getFinAcno();
+
+        //donateResult
+        //day, time, Iscd, FintechApsno, Istuno, AccessToken, FinAcno
+        editor.putString("day", day); // key,value 형식으로 저장
+        editor.putString("time", time); // key,value 형식으로 저장
+        editor.putString("Iscd", Iscd); // key,value 형식으로 저장
+        editor.putString("FintechApsno", FintechApsno); // key,value 형식으로 저장
+        editor.putString("Istuno", Istuno); // key,value 형식으로 저장
+        editor.putString("AccessToken", AccessToken); // key,value 형식으로 저장
+        editor.putString("finAcno", FinAcno); // key,value 형식으로 저장
+        editor.commit();    //최종 커밋. 커밋을 해야 저장이 된다.
+        //pref 받아오기
 //            String pref = sharedPreferences.getString("finAcno", null);
 //            Log.d("finAcno", pref);
 //            Log.d("task", FinAcno);
 
-            //예금주조회
-            AccountName = new InquireDepositorAccountNumber(day, time, Iscd, FintechApsno, Istuno + 1, AccessToken, Bncd, Acno, "InquireDepositorAccountNumber").getName();
-            Log.d("task2", AccountName);
+        //예금주조회
+        AccountName = new InquireDepositorAccountNumber(day, time, Iscd, FintechApsno, Istuno + 1, AccessToken, Bncd, Acno, "InquireDepositorAccountNumber").getName();
+        Log.d("task2", AccountName);
 
-            //잔액조회
-            Balance = new InquireBalance(day, time, Iscd, FintechApsno, Istuno + 2, AccessToken, FinAcno, "InquireBalance").getBalance();
-            Log.d("task3", Balance);
-
-
+        //잔액조회
+        Balance = new InquireBalance(day, time, Iscd, FintechApsno, Istuno + 2, AccessToken, FinAcno, "InquireBalance").getBalance();
+        Log.d("task3", Balance);
 
 
-        }
     }
+} //FragmentHome

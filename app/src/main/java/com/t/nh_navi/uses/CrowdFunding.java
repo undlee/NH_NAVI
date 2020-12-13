@@ -41,7 +41,6 @@ public class CrowdFunding {
     public String Item() {
         return item;
     }
-    //TODO : 리턴값
 
 
     class PostExample extends AsyncTask<String, Void, String> {
