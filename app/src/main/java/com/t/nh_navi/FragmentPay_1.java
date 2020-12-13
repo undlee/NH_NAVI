@@ -7,10 +7,13 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -36,6 +39,8 @@ public class FragmentPay_1 extends Fragment {
     TextView input_money;
     ImageView qrCreate;
     Bitmap bitmap;
+    Button btn_pay2, btn_send2;
+
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -80,17 +85,35 @@ public class FragmentPay_1 extends Fragment {
         viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_pay_1, container, false);
         input_money = (TextView) viewGroup.findViewById(R.id.input_money);
         qrCreate = (ImageView) viewGroup.findViewById(R.id.image_qr_create);
+        btn_pay2 = (Button) viewGroup.findViewById(R.id.btn_pay2);
+        btn_send2 = (Button) viewGroup.findViewById(R.id.btn_send2);
 
         CreateQR();
-        //보내기 버튼 누르면 값 전송(인텐트)
-        //값 완전히 전송되면 기부금액 증가
-//        editor.putString("money", input_money.getText().toString()); // key,value 형식으로 저장
-//        editor.commit();    //최종 커밋. 커밋을 해야 저장이 된다.
-//        출금가격, qrcode 전송
-//        Intent intent = new Intent(getActivity(), FragmentPay_2.class);
-//        intent.putExtra("image", bitmap);
-//        startActivity(intent);
 
+        //qr코드 확대
+        btn_pay2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //전달할 데이터 Bundle
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("qr", bitmap);
+                //Fragment 연결
+                Fragment fragment = new FragmentPay_2(); // Fragment 생성 B
+                fragment.setArguments(bundle);
+                getFragmentManager().beginTransaction().replace(R.id.main_layout, fragment).commitAllowingStateLoss();
+            }
+        });
+
+        //결제하기
+        //수정
+        btn_send2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment = new FragmentPay_4(); // Fragment 생성 B
+                Bundle bundle = new Bundle();
+                bundle.putString("param1", input_money.getText().toString()); // Key, Value
+            }
+        });
 
         return viewGroup;
     }

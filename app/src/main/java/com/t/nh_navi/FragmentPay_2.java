@@ -68,8 +68,10 @@ public class FragmentPay_2 extends Fragment {
         //R.layout 이름바꾸기
         viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_pay_2, container, false);
         qrCreate = (ImageView) viewGroup.findViewById(R.id.image_qr_create);
-        //Excel
-//        list_excel = (ListView) viewGroup.findViewById(R.id.listview1);
+
+        Bundle bundle = getArguments();
+        Bitmap bmp = (Bitmap) bundle.getParcelable("qr");
+        qrCreate.setImageBitmap(bmp);
 
 
         return viewGroup;
