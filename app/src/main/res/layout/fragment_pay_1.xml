@@ -38,12 +38,14 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="85dp"
                 android:text="QR결제"
+                android:textAlignment="center"
+                android:gravity="center"
                 android:textColor="@color/black"
-                android:textSize="25dp"/>
+                android:textSize="20dp"/>
             <ImageView
                 android:id="@+id/image_qr"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="130dp"
                 android:background="@drawable/qr"/>
@@ -58,7 +60,7 @@
                 android:id="@+id/btn_pay1"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="280dp"
+                android:layout_marginTop="270dp"
                 android:layout_centerHorizontal="true"
                 android:backgroundTint="@color/white"
                 app:cardCornerRadius="10dp"
@@ -80,7 +82,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginTop="360dp"
+                android:layout_marginTop="345dp"
                 android:layout_gravity="center_horizontal"
                 android:background="@color/gray2"/>
 
@@ -89,17 +91,17 @@
                 android:layout_width="100dp"
                 android:layout_height="30dp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="385dp"
+                android:layout_marginTop="360dp"
                 android:text="송금하기"
                 android:textAlignment="center"
                 android:gravity="center"
                 android:textColor="@color/black"
-                android:textSize="25dp"/>
+                android:textSize="20dp"/>
             <EditText
                 android:id="@+id/input_money"
                 android:layout_width="200dp"
                 android:layout_height="45dp"
-                android:layout_marginTop="440dp"
+                android:layout_marginTop="410dp"
                 android:layout_centerHorizontal="true"
                 android:hint="금액을 입력하세요"
                 android:textAlignment="center"
@@ -109,7 +111,7 @@
                 android:id="@+id/input_bank"
                 android:layout_width="130dp"
                 android:layout_height="45dp"
-                android:layout_marginTop="500dp"
+                android:layout_marginTop="470dp"
                 android:layout_marginLeft="30dp"
                 android:hint="은행 입력"
                 android:textAlignment="center"
@@ -119,7 +121,7 @@
                 android:id="@+id/input_account"
                 android:layout_width="190dp"
                 android:layout_height="45dp"
-                android:layout_marginTop="500dp"
+                android:layout_marginTop="470dp"
                 android:layout_marginLeft="190dp"
                 android:hint="계좌번호 입력"
                 android:textAlignment="center"
@@ -129,7 +131,7 @@
                 android:id="@+id/btn_send1"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="570dp"
+                android:layout_marginTop="540dp"
                 android:layout_centerHorizontal="true"
                 android:backgroundTint="@color/white"
                 app:cardCornerRadius="10dp"

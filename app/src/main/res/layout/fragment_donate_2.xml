@@ -3,12 +3,232 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".FragmentDonate_2">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <?xml version="1.0" encoding="utf-8"?>
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="-30dp"
+                android:backgroundTint="@color/mint1"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="10dp">
+
+                <TextView
+                    android:id="@+id/donate_title"
+                    android:layout_width="140dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="45dp"
+                    android:text="추천기부 설정"
+                    android:textColor="@color/white"
+                    android:textAlignment="center"
+                    android:textSize="30dp"
+                    android:textStyle="bold"/>
+
+            </androidx.cardview.widget.CardView>
+            
+            <TextView
+                android:id="@+id/donate_choice1"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="100dp"
+                android:text="관심있는 분야"
+                android:textStyle="bold"
+                android:textSize="20dp"/>
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="220dp"
+                android:layout_marginTop="105dp"
+                android:text="를 선택해주세요."
+                android:textSize="15dp"/>
+            <Button
+                android:id="@+id/field1"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:background="@drawable/color_change"
+                android:layout_marginTop="150dp"
+                android:layout_marginLeft="80dp"
+                android:text="아동"
+                android:textAlignment="center"
+                android:gravity="center"/>
+            <Button
+                android:id="@+id/field2"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:background="@drawable/color_change"
+                android:layout_marginTop="150dp"
+                android:layout_marginLeft="160dp"
+                android:text="장애인"
+                android:textAlignment="center"
+                android:gravity="center"/>
+            <Button
+                android:id="@+id/field3"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:background="@drawable/color_change"
+                android:layout_marginTop="150dp"
+                android:layout_marginLeft="250dp"
+                android:text="자연재해"
+                android:textAlignment="center"
+                android:gravity="center"/>
+            <Button
+                android:id="@+id/field4"
+                android:layout_width="75dp"
+                android:layout_height="40dp"
+                android:background="@drawable/color_change"
+                android:layout_marginTop="200dp"
+                android:layout_marginLeft="80dp"
+                android:text="한부모"
+                android:textAlignment="center"
+                android:gravity="center"/>
+            <Button
+                android:id="@+id/field5"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:background="@drawable/color_change"
+                android:layout_marginTop="200dp"
+                android:layout_marginLeft="170dp"
+                android:text="어르신"
+                android:textAlignment="center"
+                android:gravity="center"/>
+            <Button
+                android:id="@+id/field6"
+                android:layout_width="90dp"
+                android:layout_height="40dp"
+                android:background="@drawable/color_change"
+                android:layout_marginTop="200dp"
+                android:layout_marginLeft="260dp"
+                android:text="유기견"
+                android:textAlignment="center"
+                android:gravity="center"/>
+
+
+            <TextView
+                android:id="@+id/donate_choice2"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="120dp"
+                android:layout_marginTop="270dp"
+                android:text="봉사 방법"
+                android:textStyle="bold"
+                android:textSize="20dp"/>
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="200dp"
+                android:layout_marginTop="275dp"
+                android:text="을 선택해주세요."
+                android:textSize="15dp"/>
+            <Button
+                android:id="@+id/way1"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:background="@drawable/color_change"
+                android:layout_marginTop="320dp"
+                android:layout_marginLeft="80dp"
+                android:text="기관"
+                android:textAlignment="center"
+                android:gravity="center"/>
+            <Button
+                android:id="@+id/way2"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:background="@drawable/color_change"
+                android:layout_marginTop="320dp"
+                android:layout_marginLeft="165dp"
+                android:text="자원봉사"
+                android:textAlignment="center"
+                android:gravity="center"/>
+            <Button
+                android:id="@+id/way3"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:background="@drawable/color_change"
+                android:layout_marginTop="320dp"
+                android:layout_marginLeft="280dp"
+                android:text="펀딩"
+                android:textAlignment="center"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/donate_choice3"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="120dp"
+                android:layout_marginTop="400dp"
+                android:text="희망 금액"
+                android:textStyle="bold"
+                android:textSize="20dp"/>
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="200dp"
+                android:layout_marginTop="405dp"
+                android:text="을 선택해주세요."
+                android:textSize="15dp"/>
+            <Button
+                android:id="@+id/money1"
+                android:layout_width="90dp"
+                android:layout_height="50dp"
+                android:background="@drawable/color_change"
+                android:layout_marginTop="450dp"
+                android:layout_marginLeft="60dp"
+                android:text="1만원 미만"
+                android:textAlignment="center"
+                android:gravity="center"/>
+            <Button
+                android:id="@+id/money2"
+                android:layout_width="90dp"
+                android:layout_height="50dp"
+                android:background="@drawable/color_change"
+                android:layout_marginTop="450dp"
+                android:layout_marginLeft="170dp"
+                android:text="5만원 미만"
+                android:textAlignment="center"
+                android:gravity="center"/>
+            <Button
+                android:id="@+id/money3"
+                android:layout_width="90dp"
+                android:layout_height="50dp"
+                android:background="@drawable/color_change"
+                android:layout_marginTop="450dp"
+                android:layout_marginLeft="280dp"
+                android:text="5만원 이상"
+                android:textAlignment="center"
+                android:gravity="center"/>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="560dp"
+                android:layout_centerHorizontal="true"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="30dp"
+                app:cardElevation="10dp">
+                <Button
+                    android:id="@+id/btn_recommend"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/mint1"
+                    android:background="@drawable/background_rounding"
+                    android:text="선택완료"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"/>
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
 </FrameLayout>
