@@ -3,12 +3,229 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".FragmentPay_3">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="-30dp"
+                android:backgroundTint="@color/mint1"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="10dp">
 
+                <TextView
+                    android:id="@+id/donate_title"
+                    android:layout_width="140dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="45dp"
+                    android:text="QR결제"
+                    android:textColor="@color/white"
+                    android:textAlignment="center"
+                    android:textSize="30dp"
+                    android:textStyle="bold"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <ImageView
+                android:id="@+id/logo1"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="100dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/category_navi"/>
+            <TextView
+                android:layout_width="90dp"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="180dp"
+                android:text="결제완료!"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="@color/mint2"
+                android:textSize="20dp"
+                android:textStyle="bold"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="235dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/gray2"/>
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="250dp"
+                android:text="결제 내역을 확인하세요"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="@color/gray6"
+                android:textSize="17dp"
+                android:textStyle="bold"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="310dp"
+                android:layout_height="350dp"
+                android:layout_marginTop="300dp"
+                android:layout_centerHorizontal="true"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="10dp">
+                <TextView
+                    android:id="@+id/store_name"
+                    android:layout_width="150dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:text="하나로마트 (용산점)"
+                    android:textStyle="bold"
+                    android:textSize="17dp"
+                    android:textAlignment="center"
+                    android:gravity="center"/>
+                <TextView
+                    android:id="@+id/pay_date"
+                    android:layout_width="60dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="60dp"
+                    android:layout_marginLeft="40dp"
+                    android:text="결제 정보"
+                    android:textSize="15dp"/>
+                <TextView
+                    android:id="@+id/pay_date_result"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="170dp"
+                    android:layout_marginTop="62dp"
+                    android:text="2020.11.24 20:25:36"
+                    android:textSize="13dp" />
+
+                <TextView
+                    android:id="@+id/pay_way"
+                    android:layout_width="60dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="100dp"
+                    android:layout_marginLeft="40dp"
+                    android:text="결제 수단"
+                    android:textSize="15dp"/>
+                <TextView
+                    android:id="@+id/pay_way_result"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="215dp"
+                    android:layout_marginTop="102dp"
+                    android:text="농협체크카드"
+                    android:textSize="13dp" />
+
+                <TextView
+                    android:id="@+id/pay_count"
+                    android:layout_width="60dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="140dp"
+                    android:layout_marginLeft="40dp"
+                    android:text="결제 구분"
+                    android:textSize="15dp"/>
+                <TextView
+                    android:id="@+id/pay_count_result"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="250dp"
+                    android:layout_marginTop="142dp"
+                    android:text="일시불"
+                    android:textSize="13dp" />
+
+                <TextView
+                    android:id="@+id/pay_much"
+                    android:layout_width="60dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="180dp"
+                    android:layout_marginLeft="40dp"
+                    android:text="주문 금액"
+                    android:textSize="15dp"/>
+                <TextView
+                    android:id="@+id/pay_much_result"
+                    android:layout_width="53dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="240dp"
+                    android:layout_marginTop="182dp"
+                    android:text="56,200원"
+                    android:textSize="13dp" />
+
+                <TextView
+                    android:id="@+id/pay_donate"
+                    android:layout_width="60dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="220dp"
+                    android:layout_marginLeft="40dp"
+                    android:text="기부 금액"
+                    android:textSize="15dp"/>
+                <TextView
+                    android:id="@+id/pay_donate_result"
+                    android:layout_width="45dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="245dp"
+                    android:layout_marginTop="222dp"
+                    android:text="5,620원"
+                    android:textSize="13dp" />
+
+                <ImageView
+                    android:layout_width="250dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="250dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@color/gray2"/>
+
+                <TextView
+                    android:id="@+id/total_pay"
+                    android:layout_width="100dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="270dp"
+                    android:layout_marginLeft="40dp"
+                    android:text="총 결제 금액"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/total_pay_result"
+                    android:layout_width="60dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="270dp"
+                    android:layout_marginLeft="225dp"
+                    android:text="61,820원"
+                    android:textSize="15dp"
+                    android:textColor="@color/red"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/total_donate"
+                    android:layout_width="100dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="300dp"
+                    android:layout_marginLeft="40dp"
+                    android:text="누적 기부 금액"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/total_donate_result"
+                    android:layout_width="70dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="300dp"
+                    android:layout_marginLeft="218dp"
+                    android:text="124,140원"
+                    android:textSize="15dp"
+                    android:textColor="@color/red"
+                    android:textStyle="bold"/>
+
+            </androidx.cardview.widget.CardView>
+
+
+
+        </RelativeLayout>
 </FrameLayout>
