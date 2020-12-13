@@ -3,12 +3,143 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".FragmentPay_1">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="-30dp"
+                android:backgroundTint="@color/mint1"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="10dp">
 
+                <TextView
+                    android:id="@+id/donate_title"
+                    android:layout_width="140dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="45dp"
+                    android:text="간편결제"
+                    android:textColor="@color/white"
+                    android:textAlignment="center"
+                    android:textSize="30dp"
+                    android:textStyle="bold"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="85dp"
+                android:text="QR결제"
+                android:textColor="@color/black"
+                android:textSize="25dp"/>
+            <ImageView
+                android:id="@+id/image_qr"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="130dp"
+                android:background="@drawable/qr"/>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btn_pay1"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="280dp"
+                android:layout_centerHorizontal="true"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="10dp">
+                <Button
+                    android:id="@+id/btn_pay2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/white"
+                    android:background="@drawable/background_rounding"
+                    android:text="결제하기"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"/>
+            </androidx.cardview.widget.CardView>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="360dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/gray2"/>
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="385dp"
+                android:text="송금하기"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="25dp"/>
+            <EditText
+                android:id="@+id/input_money"
+                android:layout_width="200dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="440dp"
+                android:layout_centerHorizontal="true"
+                android:hint="금액을 입력하세요"
+                android:textAlignment="center"
+                android:gravity="center_horizontal"
+                android:inputType="number"/>
+            <EditText
+                android:id="@+id/input_bank"
+                android:layout_width="130dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="500dp"
+                android:layout_marginLeft="30dp"
+                android:hint="은행 입력"
+                android:textAlignment="center"
+                android:gravity="center_horizontal"
+                android:inputType="text"/>
+            <EditText
+                android:id="@+id/input_account"
+                android:layout_width="190dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="500dp"
+                android:layout_marginLeft="190dp"
+                android:hint="계좌번호 입력"
+                android:textAlignment="center"
+                android:gravity="center_horizontal"
+                android:inputType="number"/>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btn_send1"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="570dp"
+                android:layout_centerHorizontal="true"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="10dp">
+                <Button
+                    android:id="@+id/btn_send2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/white"
+                    android:background="@drawable/background_rounding"
+                    android:text="보내기"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"/>
+            </androidx.cardview.widget.CardView>
+
+
+        </RelativeLayout>
 </FrameLayout>

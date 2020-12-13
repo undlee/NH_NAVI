@@ -24,11 +24,11 @@
                     android:layout_width="140dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="45dp"
                     android:text="기부하기"
                     android:textColor="@color/white"
                     android:textAlignment="center"
-                    android:textSize="35dp"
+                    android:textSize="30dp"
                     android:textStyle="bold"/>
 
             </androidx.cardview.widget.CardView>
@@ -42,11 +42,13 @@
                 android:backgroundTint="@color/white"
                 app:cardCornerRadius="30dp"
                 app:cardElevation="10dp">
-            <TextView
+            <Button
                 android:id="@+id/btn_recommend"
-                android:layout_width="120dp"
-                android:layout_height="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
+                android:backgroundTint="@color/white"
+                android:background="@drawable/background_rounding"
                 android:text="추천기부 설정"
                 android:textStyle="bold"
                 android:textColor="@color/black"

@@ -3,12 +3,98 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".FragmentPay_2">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="-30dp"
+                android:backgroundTint="@color/mint1"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="10dp">
+
+                <TextView
+                    android:id="@+id/donate_title"
+                    android:layout_width="140dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="45dp"
+                    android:text="QR결제"
+                    android:textColor="@color/white"
+                    android:textAlignment="center"
+                    android:textSize="30dp"
+                    android:textStyle="bold"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <ImageView
+                android:id="@+id/image_qr"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="120dp"
+                android:background="@drawable/qr"/>
+
+
+            <TextView
+                android:layout_width="270dp"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="350dp"
+                android:text="QR코드를 점원에게 보여주세요"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="@color/gray6"
+                android:textSize="20dp"/>
+
+            <ImageButton
+                android:id="@+id/logo1"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="420dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/category_navi"/>
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="520dp"
+                android:text="유효시간"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="@color/mint2"
+                android:textSize="25dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="110dp"
+                android:layout_marginTop="560dp"
+                android:text="01분00"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="@color/mint2"
+                android:textSize="25dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="200dp"
+                android:layout_marginTop="560dp"
+                android:text="초 남음"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="@color/mint2"
+                android:textSize="25dp"
+                android:textStyle="bold"/>
+
+
+        </RelativeLayout>
 </FrameLayout>
