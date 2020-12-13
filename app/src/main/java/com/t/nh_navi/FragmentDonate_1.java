@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 import jxl.Cell;
 import jxl.Sheet;
@@ -115,6 +116,13 @@ public class FragmentDonate_1 extends Fragment {
             public void onItemClick(AdapterView parent, View v, int position, long id) {
                 Log.d("arrayList", (String) resultArr.get(position));
                 //어댑터 위치 받아 시설명 출력 다음페이지 전환
+
+                Fragment fragment = new FragmentDonate_6(); // Fragment 생성 B
+                Bundle bundle = new Bundle();
+                bundle.putString("name", (String) resultArr.get(position));
+                fragment.setArguments(bundle);
+                getFragmentManager().beginTransaction().replace(R.id.main_layout, fragment).commitAllowingStateLoss();
+
             }
         });
 
@@ -180,13 +188,12 @@ public class FragmentDonate_1 extends Fragment {
 //                            Log.d("aa", instituteName[j]);
                         if (row[1].getContents().contains(find.get(j)) | row[2].getContents().contains(find.get(j))) {
                             resultArray.add(row[1].getContents());
-                            arrayAdapter.add(row[1].getContents());
 
                         }
                     }
+
                 } else {
                     resultArray.add(row[1].getContents());
-                    arrayAdapter.add(row[1].getContents());
 
                 }
             }
@@ -198,6 +205,10 @@ public class FragmentDonate_1 extends Fragment {
         } finally {
 //            list_excel.setAdapter(arrayAdapter);
             workbook.close();
+        }
+        resultArray.add(0, "송파노인종합복지관");
+        for(int i=0; i<resultArray.size(); i++){
+            arrayAdapter.add((String) resultArray.get(i));
         }
         return resultArray;
     }// Excel

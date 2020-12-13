@@ -139,6 +139,7 @@ public class FragmentPay_1 extends Fragment {
 //        Log.d("test", day+","+time+","+","+Iscd+","+FintechApsno+","+Istuno+","+AccessToken+","+FinAcno);
         try {
             Drawing = new DrawingTransfer(day, time, Iscd, FintechApsno, Istuno + 3, AccessToken, FinAcno, transAmount, DractOtlt, "DrawingTransfer").getRgsnYmd();
+//            Drawing = new DrawingTransfer(day, time, Iscd, FintechApsno, Istuno + 3, AccessToken, FinAcno, "990959500", DractOtlt, "DrawingTransfer").getRgsnYmd();
             Log.d("task4", Drawing);
             point = String.valueOf((int) (Integer.parseInt(transAmount)*0.01));
         } catch (InterruptedException e) {
