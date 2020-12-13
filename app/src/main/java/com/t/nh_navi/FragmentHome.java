@@ -5,22 +5,18 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.t.nh_navi.uses.CheckOpenFinAccountDirect;
 import com.t.nh_navi.uses.InquireBalance;
 import com.t.nh_navi.uses.InquireDepositorAccountNumber;
-import com.t.nh_navi.uses.PreferenceManager;
 
 import org.json.JSONException;
 

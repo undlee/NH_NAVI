@@ -51,8 +51,8 @@
                 android:background="@drawable/qr"/>
             <ImageView
                 android:id="@+id/image_qr_create"
-                android:layout_width="115dp"
-                android:layout_height="115dp"
+                android:layout_width="95dp"
+                android:layout_height="95dp"
                 android:layout_marginTop="135dp"
                 android:layout_centerHorizontal="true"
                 android:background="#00ffffff"/>

@@ -1,6 +1,5 @@
 package com.t.nh_navi;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 
@@ -10,8 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
-import static android.content.Context.MODE_PRIVATE;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,6 +27,8 @@ public class FragmentPay_2 extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     ViewGroup viewGroup;
     ImageView qrCreate;
+    int count;
+    TextView time;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -68,12 +71,39 @@ public class FragmentPay_2 extends Fragment {
         //R.layout 이름바꾸기
         viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_pay_2, container, false);
         qrCreate = (ImageView) viewGroup.findViewById(R.id.image_qr_create);
+        time = (TextView)viewGroup.findViewById(R.id.time);
 
         Bundle bundle = getArguments();
         Bitmap bmp = (Bitmap) bundle.getParcelable("qr");
         qrCreate.setImageBitmap(bmp);
 
+        //qr코드 시간 가게 하기
+        timer();
 
         return viewGroup;
     }
-}
+
+    void timer(){
+        count = 10;
+        time.setText(String.format("%02d", 00)+"분"+String.format("%02d", count));
+        Timer m_timer = new Timer();
+        TimerTask m_task = new TimerTask() {
+            @Override
+            public void run() {
+                if(count>0){
+                    count--;
+                    time.setText(String.format("%02d", 00)+"분"+String.format("%02d", count));
+                }
+
+                else{
+                    m_timer.cancel();
+                    //Fragment 연결
+                    Fragment fragment = new FragmentPay_3(); // Fragment 생성 B
+                    getFragmentManager().beginTransaction().replace(R.id.main_layout, fragment).commitAllowingStateLoss();
+                }
+            }
+
+        };
+        m_timer.schedule(m_task, 1000, 1000);
+    }//timer
+}//fragment

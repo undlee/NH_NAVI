@@ -1,27 +1,31 @@
 package com.t.nh_navi;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.common.BitMatrix;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
-import com.t.nh_navi.uses.PreferenceManager;
+import com.t.nh_navi.uses.DrawingTransfer;
+
+import org.json.JSONException;
+
+import java.io.IOException;
+import java.util.concurrent.ExecutionException;
+
 import static android.content.Context.MODE_PRIVATE;
 
 /**
@@ -40,6 +44,7 @@ public class FragmentPay_1 extends Fragment {
     ImageView qrCreate;
     Bitmap bitmap;
     Button btn_pay2, btn_send2;
+    String transAmount, Drawing;
 
 
     // TODO: Rename and change types of parameters
@@ -100,22 +105,57 @@ public class FragmentPay_1 extends Fragment {
                 //Fragment 연결
                 Fragment fragment = new FragmentPay_2(); // Fragment 생성 B
                 fragment.setArguments(bundle);
+                //TODO : 뒤로가기
                 getFragmentManager().beginTransaction().replace(R.id.main_layout, fragment).commitAllowingStateLoss();
             }
         });
 
         //결제하기
-        //수정
+        //TODO : 버튼 클릭 이벤트
         btn_send2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment = new FragmentPay_4(); // Fragment 생성 B
-                Bundle bundle = new Bundle();
-                bundle.putString("param1", input_money.getText().toString()); // Key, Value
+                //TODO : 출금 가능 잔액 적게 바꾸기
+//                Toast.makeText(getActivity(), "나비날다", Toast.LENGTH_SHORT).show();
+                Draw();
             }
         });
 
         return viewGroup;
+    }
+
+    void Draw(){
+//        String DractOtlt = "나비날다 기부";
+        //pref 받아옴
+        SharedPreferences sharedPreferences= getActivity().getSharedPreferences("test", MODE_PRIVATE);
+
+        String day = sharedPreferences.getString("day", null);
+//        Log.d("test", day);
+        String time = sharedPreferences.getString("time", null);
+        String Iscd = sharedPreferences.getString("Iscd", null);
+        String FintechApsno = sharedPreferences.getString("FintechApsno", null);
+        String Istuno = sharedPreferences.getString("Istuno", null);
+        String AccessToken = sharedPreferences.getString("AccessToken", null);
+        String FinAcno = sharedPreferences.getString("finAcno", null);
+        transAmount = input_money.getText().toString();
+        String DractOtlt = "나비날다";
+//        Log.d("test", day+","+time+","+","+Iscd+","+FintechApsno+","+Istuno+","+AccessToken+","+FinAcno);
+        try {
+            Drawing = new DrawingTransfer(day, time, Iscd, FintechApsno, Istuno + 3, AccessToken, FinAcno, transAmount, DractOtlt, "DrawingTransfer").getRgsnYmd();
+            Log.d("task4", Drawing);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        if(!Drawing.equals("0")){
+            Toast.makeText(getActivity(), "나비날다에서 " + transAmount + "원이 이체되었습니다.", Toast.LENGTH_SHORT).show();
+
+        }
     }
 
     void CreateQR(){
