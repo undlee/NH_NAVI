@@ -62,6 +62,7 @@
                 android:layout_gravity="left"
                 android:layout_marginLeft="327dp"
                 android:layout_marginTop="113dp"
+                android:clickable="true"
                 android:text="결제"
                 android:textColor="@color/white"
                 android:textSize="17dp"

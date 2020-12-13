@@ -1,5 +1,6 @@
 package com.t.nh_navi;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -91,6 +92,7 @@ public class FragmentDonate_1 extends Fragment {
         recommend.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                ((MainActivity)getActivity()).replaceFragment(new FragmentDonate_2());
             }
         });
 

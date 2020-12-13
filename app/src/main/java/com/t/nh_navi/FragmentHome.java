@@ -55,6 +55,13 @@ public class FragmentHome extends Fragment {
 
         viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_home, container, false);
 
+        TextView pay = (TextView) viewGroup.findViewById(R.id.pay1);
+        pay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity)getActivity()).replaceFragment(new FragmentPay_1());
+            }
+        });
         TextView title = (TextView) viewGroup.findViewById(R.id.user_title);
         TextView account_number1 = (TextView) viewGroup.findViewById(R.id.account_number1);
         TextView account_amount1 = (TextView) viewGroup.findViewById(R.id.account_amount1);
