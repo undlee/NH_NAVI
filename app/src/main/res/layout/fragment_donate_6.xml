@@ -5,38 +5,209 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".FragmentDonate_6">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="-30dp"
+        android:backgroundTint="@color/mint1"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="10dp">
+
+        <TextView
+            android:id="@+id/donate_title"
+            android:layout_width="140dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="45dp"
+            android:text="기부"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:textSize="30dp"
+            android:textStyle="bold"/>
+
+    </androidx.cardview.widget.CardView>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="1000dp"
+            android:layout_height="1100dp"
             android:orientation="horizontal">
 
+            <TextView
+                android:layout_width="180dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="100dp"
+                android:text="기관 상세정보"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textSize="30dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
             <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginTop="-30dp"
-                android:backgroundTint="@color/mint1"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="10dp">
-
-                <TextView
-                    android:id="@+id/donate_title"
-                    android:layout_width="140dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="45dp"
-                    android:text="기부"
-                    android:textColor="@color/white"
-                    android:textAlignment="center"
-                    android:textSize="30dp"
-                    android:textStyle="bold"/>
-
+                android:layout_width="230dp"
+                android:layout_height="260dp"
+                android:layout_marginTop="150dp"
+                android:layout_centerHorizontal="true"
+                app:cardCornerRadius="15dp">
+                <ImageView
+                    android:id="@+id/img_place"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/place_example"/>
             </androidx.cardview.widget.CardView>
+            <TextView
+                android:id="@+id/place_name"
+                android:layout_width="210dp"
+                android:layout_height="35dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="430dp"
+                android:text="송파노인종합복지관"
+                android:background="@color/mint2"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textSize="25dp"
+                android:textColor="@color/black"/>
+            <TextView
+                android:id="@+id/place_intro"
+                android:layout_width="220dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="480dp"
+                android:layout_centerHorizontal="true"
+                android:text="서울특별시 송파구 삼전동에 위치한 노인전문 복지관"
+                android:textSize="15dp"
+                android:textAlignment="center"
+                android:gravity="center"/>
 
             <ImageView
-                android:layout_width="match_parent"
+                android:layout_width="350dp"
                 android:layout_height="1dp"
-                android:layout_marginTop="180dp"
-                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="550dp"
+                android:layout_centerHorizontal="true"
                 android:background="@color/gray2"/>
+
+            <TextView
+                android:layout_width="210dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="580dp"
+                android:layout_centerHorizontal="true"
+                android:text="운영 : 청암노인복지재단"
+                android:textSize="15dp"
+                android:textColor="@color/gray3"
+                android:textAlignment="center"
+                android:gravity="center"/>
+            <TextView
+                android:layout_width="210dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="600dp"
+                android:layout_centerHorizontal="true"
+                android:text="대표이사 : 이성희"
+                android:textSize="15dp"
+                android:textColor="@color/gray3"
+                android:textAlignment="center"
+                android:gravity="center"/>
+            <TextView
+                android:layout_width="210dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="620dp"
+                android:layout_centerHorizontal="true"
+                android:text="개관 : 1996년 11월 21일"
+                android:textSize="15dp"
+                android:textColor="@color/gray3"
+                android:textAlignment="center"
+                android:gravity="center"/>
+            <TextView
+                android:layout_width="220dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="640dp"
+                android:layout_centerHorizontal="true"
+                android:text="대상 : 서울특별시 송파구거주 노인"
+                android:textSize="15dp"
+                android:textColor="@color/gray3"
+                android:textAlignment="center"
+                android:gravity="center"/>
+            <TextView
+                android:layout_width="310dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="660dp"
+                android:layout_centerHorizontal="true"
+                android:text="사업분야 : 문화활동, 교육, 건강관리, 사회참여 등"
+                android:textSize="15dp"
+                android:textColor="@color/gray3"
+                android:textAlignment="center"
+                android:gravity="center"/>
+            <TextView
+                android:layout_width="210dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="680dp"
+                android:layout_centerHorizontal="true"
+                android:text="대지면적 : 1,759㎡"
+                android:textSize="15dp"
+                android:textColor="@color/gray3"
+                android:textAlignment="center"
+                android:gravity="center"/>
+            <TextView
+                android:layout_width="210dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="700dp"
+                android:layout_centerHorizontal="true"
+                android:text="(건축총면적 4,902㎡의 지하 2층·지상 5층)"
+                android:textSize="15dp"
+                android:textColor="@color/gray3"
+                android:textAlignment="center"
+                android:gravity="center"/>
+
+            <ImageView
+                android:layout_width="350dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="750dp"
+                android:layout_centerHorizontal="true"
+                android:background="@color/gray2"/>
+
+            <TextView
+                android:id="@+id/palce_info"
+                android:layout_width="250dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="780dp"
+                android:layout_centerHorizontal="true"
+                android:text=" 지역 사업으로 노인들의 사회참여를 위한 일자리
+알선과 경로당 지원을 하고, 재가복지 사업으로 송파구내 65세 이상 저소득노인을 대상으로 한 가정봉사원 파견 및 물품 지원을 하며 독거노인을 위해
+생활관리사를 파견하는 사업을 한다.
+송파노인종합복지관은 2007년 12월 20일 독거노인생활관리사 교육기관으로 선정된 바 있다."
+                android:textSize="13dp"
+                android:textColor="@color/gray3"
+                android:textAlignment="center"
+                android:gravity="center"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="1000dp"
+                android:layout_centerHorizontal="true"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="10dp">
+                <TextView
+                    android:id="@+id/btn_recommend"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="누적 기부횟수  59회                                       102"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="10dp"/>
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/heart"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginLeft="65dp"
+                    android:layout_gravity="center_horizontal"/>
+            </androidx.cardview.widget.CardView>
+
         </RelativeLayout>
+    </ScrollView>
 </FrameLayout>
