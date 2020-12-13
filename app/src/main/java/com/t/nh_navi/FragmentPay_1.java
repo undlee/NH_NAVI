@@ -158,7 +158,7 @@ public class FragmentPay_1 extends Fragment {
             editor.commit();    //최종 커밋. 커밋을 해야 저장이 된다.
 
             Toast.makeText(getActivity(), "나비날다에서 " + transAmount + "원이 이체되었습니다. \n 지급 포인트는 " +point+"원 입니다." , Toast.LENGTH_LONG).show();
-
+            input_money.setText(null);
         }
     }
 

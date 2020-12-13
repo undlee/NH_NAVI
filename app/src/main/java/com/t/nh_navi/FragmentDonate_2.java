@@ -1,6 +1,7 @@
 package com.t.nh_navi;
 
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -116,6 +117,8 @@ public class FragmentDonate_2 extends Fragment {
                 @Override
                 public void onClick(View v) {
                     selectInstitute[para]=1;
+                    donate_choice1[para].setSelected(true);
+                    donate_choice1[para].setTextColor(Color.WHITE);
                 }
             });
         }

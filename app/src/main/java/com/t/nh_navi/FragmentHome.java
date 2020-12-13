@@ -72,8 +72,8 @@ public class FragmentHome extends Fragment {
         load();
 
 //        preference manager 초기화
-        editor.clear();
-        editor.commit();
+//        editor.clear();
+//        editor.commit();
 
         if(donateResult!=null){
 //            Log.d("int", donateResult);

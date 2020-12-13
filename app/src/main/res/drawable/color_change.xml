@@ -9,6 +9,13 @@
     </item>
     <item android:state_pressed="true">
         <shape>
+            <corners android:radius="20dp"></corners>
+            <solid android:color="@color/mint1"></solid>
+        </shape>
+    </item>
+    <item android:state_selected="true">
+        <shape>
+            <corners android:radius="20dp"></corners>
             <solid android:color="@color/mint1"></solid>
         </shape>
     </item>
