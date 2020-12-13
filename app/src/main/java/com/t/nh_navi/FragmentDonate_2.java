@@ -32,8 +32,8 @@ public class FragmentDonate_2 extends Fragment {
     private String mParam1;
     private String mParam2;
     ViewGroup viewGroup;
-    Button[] donate_choice1;
-    int[] id_donate_choice1, selectInstitute;
+    Button[] donate_choice1, donate_choice2, donate_choice3;
+    int[] id_donate_choice1, selectInstitute, id_donate_choice2, id_donate_choice3;
     SharedPreferences sharedPreferences;
     String st;
 
@@ -78,10 +78,14 @@ public class FragmentDonate_2 extends Fragment {
 
         //눌린 상태 유지
         id_donate_choice1 = new int[]{R.id.field1, R.id.field2, R.id.field3, R.id.field4, R.id.field5, R.id.field6};
+        id_donate_choice2 = new int[]{R.id.way1, R.id.way2, R.id.way3, R.id.money1, R.id.money2, R.id.money3};
+        id_donate_choice3 = new int[]{ R.id.money1, R.id.money2, R.id.money3};
 //        for(int i=0; i<id_donate_choice1.length; i++){
 //            Log.d("donate_2", String.valueOf(id_donate_choice1[i]));
 //        }
         donate_choice1 = new Button[id_donate_choice1.length];
+        donate_choice2 = new Button[id_donate_choice2.length];
+        donate_choice3 = new Button[id_donate_choice3.length];
 
         //버튼
         selectInstitute = new int[6];
@@ -119,6 +123,30 @@ public class FragmentDonate_2 extends Fragment {
                     selectInstitute[para]=1;
                     donate_choice1[para].setSelected(true);
                     donate_choice1[para].setTextColor(Color.WHITE);
+                }
+            });
+        }
+        for(int i = 0; i<id_donate_choice2.length; i++){
+            donate_choice2[i]=(Button)viewGroup.findViewById(id_donate_choice2[i]);
+            int para = i;
+            donate_choice2[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    selectInstitute[para]=1;
+                    donate_choice2[para].setSelected(true);
+                    donate_choice2[para].setTextColor(Color.WHITE);
+                }
+            });
+        }
+        for(int i = 0; i<id_donate_choice3.length; i++){
+            donate_choice3[i]=(Button)viewGroup.findViewById(id_donate_choice3[i]);
+            int para = i;
+            donate_choice3[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    selectInstitute[para]=1;
+                    donate_choice3[para].setSelected(true);
+                    donate_choice3[para].setTextColor(Color.WHITE);
                 }
             });
         }

@@ -84,7 +84,7 @@ public class FragmentPay_2 extends Fragment {
     }
 
     void timer(){
-        count = 10;
+        count = 6;
         time.setText(String.format("%02d", 00)+"분"+String.format("%02d", count));
         Timer m_timer = new Timer();
         TimerTask m_task = new TimerTask() {
