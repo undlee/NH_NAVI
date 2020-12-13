@@ -98,6 +98,7 @@ public class FragmentDonate_1 extends Fragment {
                 getFragmentManager().beginTransaction().replace(R.id.main_layout, fragment).commitAllowingStateLoss();
             }
         });
+
 //        Log.d("result", String.valueOf(resultArray));
 //        //정렬
 //        Collections.sort(resultArray);
