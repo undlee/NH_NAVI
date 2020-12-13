@@ -44,8 +44,7 @@ public class FragmentPay_1 extends Fragment {
     ImageView qrCreate;
     Bitmap bitmap;
     Button btn_pay2, btn_send2;
-    String transAmount, Drawing;
-
+    String transAmount, Drawing, point;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -95,6 +94,7 @@ public class FragmentPay_1 extends Fragment {
 
         CreateQR();
 
+
         //qr코드 확대
         btn_pay2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,17 +105,14 @@ public class FragmentPay_1 extends Fragment {
                 //Fragment 연결
                 Fragment fragment = new FragmentPay_2(); // Fragment 생성 B
                 fragment.setArguments(bundle);
-                //TODO : 뒤로가기
                 getFragmentManager().beginTransaction().replace(R.id.main_layout, fragment).commitAllowingStateLoss();
             }
         });
 
         //결제하기
-        //TODO : 버튼 클릭 이벤트
         btn_send2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO : 출금 가능 잔액 적게 바꾸기
 //                Toast.makeText(getActivity(), "나비날다", Toast.LENGTH_SHORT).show();
                 Draw();
             }
@@ -143,6 +140,7 @@ public class FragmentPay_1 extends Fragment {
         try {
             Drawing = new DrawingTransfer(day, time, Iscd, FintechApsno, Istuno + 3, AccessToken, FinAcno, transAmount, DractOtlt, "DrawingTransfer").getRgsnYmd();
             Log.d("task4", Drawing);
+            point = String.valueOf((int) (Integer.parseInt(transAmount)*0.01));
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -153,7 +151,13 @@ public class FragmentPay_1 extends Fragment {
             e.printStackTrace();
         }
         if(!Drawing.equals("0")){
-            Toast.makeText(getActivity(), "나비날다에서 " + transAmount + "원이 이체되었습니다.", Toast.LENGTH_SHORT).show();
+            SharedPreferences.Editor editor= sharedPreferences.edit(); //sharedPreferences를 제어할 editor를 선언
+            //key, value 이름 바꾸기
+            String donateResult = sharedPreferences.getString("donateResult", "124140");
+            editor.putString("donateResult", String.valueOf(Integer.parseInt(donateResult)+Integer.parseInt(point))); // key,value 형식으로 저장
+            editor.commit();    //최종 커밋. 커밋을 해야 저장이 된다.
+
+            Toast.makeText(getActivity(), "나비날다에서 " + transAmount + "원이 이체되었습니다. \n 지급 포인트는 " +point+"원 입니다." , Toast.LENGTH_LONG).show();
 
         }
     }
