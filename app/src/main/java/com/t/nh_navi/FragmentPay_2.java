@@ -1,5 +1,7 @@
 package com.t.nh_navi;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +9,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import static android.content.Context.MODE_PRIVATE;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,6 +24,8 @@ public class FragmentPay_2 extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    ViewGroup viewGroup;
+    ImageView qrCreate;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -58,7 +65,13 @@ public class FragmentPay_2 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pay_2, container, false);
+        //R.layout 이름바꾸기
+        viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_pay_2, container, false);
+        qrCreate = (ImageView) viewGroup.findViewById(R.id.image_qr_create);
+        //Excel
+//        list_excel = (ListView) viewGroup.findViewById(R.id.listview1);
+
+
+        return viewGroup;
     }
 }
