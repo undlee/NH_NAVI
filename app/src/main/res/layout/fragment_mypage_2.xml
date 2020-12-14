@@ -81,6 +81,8 @@
                 android:layout_marginTop="300dp"
                 android:layout_marginLeft="70dp"
                 android:textColor="@color/red"
+                android:textAlignment="center"
+                android:gravity="center"
                 android:background="@drawable/edit_mint"/>
             <TextView
                 android:layout_width="70dp"
@@ -98,6 +100,8 @@
                 android:layout_marginTop="300dp"
                 android:layout_marginLeft="230dp"
                 android:textColor="@color/red"
+                android:textAlignment="center"
+                android:gravity="center"
                 android:background="@drawable/edit_mint"/>
             <TextView
                 android:layout_width="70dp"
@@ -140,6 +144,8 @@
                 android:layout_marginTop="530dp"
                 android:layout_centerHorizontal="true"
                 android:textColor="@color/red"
+                android:textAlignment="center"
+                android:gravity="center"
                 android:background="@drawable/edit_mint"/>
             <TextView
                 android:layout_width="70dp"
