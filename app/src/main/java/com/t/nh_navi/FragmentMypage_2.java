@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -55,10 +56,21 @@ public class FragmentMypage_2 extends Fragment {
         }
     }
 
+    ViewGroup viewGroup;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_mypage_2, container, false);
+        viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_mypage_2, container, false);
+
+        Button complete = (Button) viewGroup.findViewById(R.id.btn_complete);
+        complete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity)getActivity()).replaceFragment(new FragmentMypage_1());
+            }
+        });
+
+        return viewGroup;
     }
 }
